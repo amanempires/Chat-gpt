@@ -1,0 +1,21 @@
+import os 
+os.environ['OPENAI_API_KEY']=''
+from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+def main():
+    llm=OpenAI(temperature=0.5)
+    que=str(input("Enter your Querry\n ")).casefold()
+    if que:
+        name=llm(que)
+        pname=PromptTemplate(
+        input_variables=['ans'],
+        template='{ans}'
+        )
+        pname.format(ans=que)
+        chain=LLMChain(llm=llm,prompt=pname)
+        print(chain.run(que))
+    else:
+        print("You type Nothing in the search box")
+if __name__=='__main__':
+    main()
