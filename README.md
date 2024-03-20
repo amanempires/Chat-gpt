@@ -1,2 +1,2 @@
 # Chat-gpt
-This is small Chat-Gpt.
+I have created Chat-Gpt by the using of openai and It can connect with the My project.
